@@ -1,7 +1,9 @@
 # mensageiro
 
-  Este é mais um vídeo da série de vídeos sobre RabbitMQ do canal Feltex https://www.youtube.com/feltexbr.
-  
-  - Como instalar Rabbitmq no Ubuntu   O Message broker mais rápido do mundo Open source - https://youtu.be/uUO2uGaI8Gw
-  - Como utilizar o RabbitMQ com Spring Boot e Java 11 - https://youtu.be/HPoUPrbhKj0
-  
+Cadastro de Clientes
+Realização de Recarga
+Realização de Pagamento
+Lista de recargas anteriores do cliente
+
+Essa API utiliza mensageria com RabbitMQ para persistência de dados
+
