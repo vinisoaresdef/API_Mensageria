@@ -4,7 +4,8 @@ import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//Substituir por @component
+//@Configuration
 public class PagamentoMensagemConfig {
 
     public static final String NOME_FILA = "FilaPagamento";

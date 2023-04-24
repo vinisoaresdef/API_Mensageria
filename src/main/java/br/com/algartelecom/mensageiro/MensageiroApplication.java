@@ -7,24 +7,24 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@SpringBootApplication
-public class MensageiroApplication {
 
-    @RequestMapping("/")
-    public String index() {
-        return "Hello World!";
-    }
+@SpringBootApplication
+@EnableJpaRepositories(basePackages = { "br.com.algartelecom.mensageiro.mensageiro", "br.com.algartelecom.mensageiro.model", "br.com.algartelecom.mensageiro.repository" })
+@EntityScan(basePackages = { "br.com.algartelecom.mensageiro.mensageiro", "br.com.algartelecom.mensageiro.model", "br.com.algartelecom.mensageiro.repository" })
+public class MensageiroApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MensageiroApplication.class, args);
     }
-
     @Bean
     public MessageConverter jsonMessageConverter() {
         final ObjectMapper mapper = new ObjectMapper();
