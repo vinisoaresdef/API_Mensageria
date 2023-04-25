@@ -1,6 +1,7 @@
 package br.com.algartelecom.mensageiro;
 
-import br.com.algartelecom.mensageiro.mensageiro.*;
+import br.com.algartelecom.mensageiro.mensageria.*;
+import br.com.algartelecom.mensageiro.pacotes.mensageria.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = { "br.com.algartelecom.mensageiro.mensageiro", "br.com.algartelecom.mensageiro.model", "br.com.algartelecom.mensageiro.repository" })
-@EntityScan(basePackages = { "br.com.algartelecom.mensageiro.mensageiro", "br.com.algartelecom.mensageiro.model", "br.com.algartelecom.mensageiro.repository" })
+@EnableJpaRepositories
+@EntityScan(basePackages = {"br.com.algartelecom.mensageiro.pacotes.*"})
 public class MensageiroApplication {
 
     public static void main(String[] args) {
