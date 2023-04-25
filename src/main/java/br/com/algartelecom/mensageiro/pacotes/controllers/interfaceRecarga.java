@@ -1,6 +1,6 @@
-package br.com.algartelecom.mensageiro.pacotes.model;
+package br.com.algartelecom.mensageiro.pacotes.controllers;
 
-import br.com.algartelecom.mensageiro.pacotes.mensageria.Recarga;
+import br.com.algartelecom.mensageiro.pacotes.entities.Recarga;
 import br.com.algartelecom.mensageiro.pacotes.mensageria.RecargaMensagemConfig;
 import br.com.algartelecom.mensageiro.pacotes.repository.RecargaRepository;
 import org.springframework.amqp.core.AmqpTemplate;

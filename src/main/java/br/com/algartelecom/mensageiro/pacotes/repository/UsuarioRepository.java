@@ -1,7 +1,7 @@
 package br.com.algartelecom.mensageiro.pacotes.repository;
 
 
-import br.com.algartelecom.mensageiro.pacotes.mensageria.Usuario;
+import br.com.algartelecom.mensageiro.pacotes.entities.Usuario;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

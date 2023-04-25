@@ -1,5 +1,6 @@
 package br.com.algartelecom.mensageiro.pacotes.mensageria;
 
+import br.com.algartelecom.mensageiro.pacotes.entities.Recarga;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.Exchange;

@@ -1,6 +1,9 @@
 package br.com.algartelecom.mensageiro;
 
 import br.com.algartelecom.mensageiro.mensageria.*;
+import br.com.algartelecom.mensageiro.pacotes.entities.Pagamento;
+import br.com.algartelecom.mensageiro.pacotes.entities.Recarga;
+import br.com.algartelecom.mensageiro.pacotes.entities.Usuario;
 import br.com.algartelecom.mensageiro.pacotes.mensageria.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.core.AmqpTemplate;

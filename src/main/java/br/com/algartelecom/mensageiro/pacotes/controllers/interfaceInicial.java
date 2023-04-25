@@ -1,4 +1,4 @@
-package br.com.algartelecom.mensageiro.pacotes.model;
+package br.com.algartelecom.mensageiro.pacotes.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

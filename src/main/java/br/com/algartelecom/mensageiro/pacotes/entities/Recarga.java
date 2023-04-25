@@ -1,4 +1,4 @@
-package br.com.algartelecom.mensageiro.pacotes.mensageria;
+package br.com.algartelecom.mensageiro.pacotes.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

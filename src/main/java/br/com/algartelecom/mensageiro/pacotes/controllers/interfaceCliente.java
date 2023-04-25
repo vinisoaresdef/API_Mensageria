@@ -1,6 +1,6 @@
-package br.com.algartelecom.mensageiro.pacotes.model;
+package br.com.algartelecom.mensageiro.pacotes.controllers;
 
-import br.com.algartelecom.mensageiro.pacotes.mensageria.Usuario;
+import br.com.algartelecom.mensageiro.pacotes.entities.Usuario;
 import br.com.algartelecom.mensageiro.pacotes.mensageria.UsuarioMensagemConfig;
 import br.com.algartelecom.mensageiro.pacotes.repository.UsuarioRepository;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -34,8 +34,9 @@ public class interfaceCliente {
         var usuario = new Usuario(nome, telefone, email);
         rabbitTemplate.convertAndSend(UsuarioMensagemConfig.NOME_EXCHANGE, UsuarioMensagemConfig.ROUTING_KEY,
                 usuario);
-        //salvar no banco de dados o usuario cadastrado e enviar para a fila de cadastro de usuario no rabbitmq
+        //retornar um status 200 para o LOG quando der certo.
 
+        //salvar no banco de dados o usuario cadastrado e enviar para a fila de cadastro de usuario no rabbitmq
         usuarioRepository.save(usuario);
         return  "redirect:/cadastro/success";
     }
