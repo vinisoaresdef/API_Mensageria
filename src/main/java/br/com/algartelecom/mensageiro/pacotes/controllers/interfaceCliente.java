@@ -7,10 +7,7 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/cadastro")
@@ -28,9 +25,27 @@ public class interfaceCliente {
         return "registrationUser";
     }
 
-    @RequestMapping("/produzirCadastroUsuario")
+
+    @GetMapping("/success")
+    public String showRegistrationSuccess() {
+        return "registrationUsuarioSuccess";
+    }
+
+
+    @GetMapping("/meuPerfil")
+    public String showMyProfile() {
+        return "perfilUsuario";
+    }
+
+    @GetMapping("/all")
+    public @ResponseBody Iterable<Usuario> getAllUsers() {
+        // This returns a JSON or XML with the users
+        return usuarioRepository.findAll();
+    }
+
+    @PostMapping("/produzirCadastroUsuario")
     public String produzirCadastroUsuario(@RequestParam("nome") String nome, @RequestParam("telefone") String telefone,
-                                                        @RequestParam("email") String email) {
+                                          @RequestParam("email") String email) {
         var usuario = new Usuario(nome, telefone, email);
         rabbitTemplate.convertAndSend(UsuarioMensagemConfig.NOME_EXCHANGE, UsuarioMensagemConfig.ROUTING_KEY,
                 usuario);
@@ -41,15 +56,27 @@ public class interfaceCliente {
         return  "redirect:/cadastro/success";
     }
 
-    @GetMapping("/success")
-    public String showRegistrationSuccess() {
-        return "registrationUsuarioSuccess";
+    @PutMapping("/update/{id}")
+    public String updateUser(@PathVariable("id") long id, @RequestBody Usuario usuario, Model model) {
+        Usuario usuario1 = usuarioRepository.findById((int) id)
+            .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        usuario1.setNome(usuario.getNome());
+        usuario1.setTelefone(usuario.getTelefone());
+        usuario1.setEmail(usuario.getEmail());
+        usuarioRepository.save(usuario1);
+        model.addAttribute("users", usuarioRepository.findAll());
+        return "updatedUserSuccess";
     }
 
-    @GetMapping("/all")
-    public @ResponseBody Iterable<Usuario> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return usuarioRepository.findAll();
+    @DeleteMapping("/delete/{id}")
+    public String deleteUsuario(@PathVariable("id") long id, Model model) {
+        Usuario usuario = usuarioRepository.findById((int) id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        usuarioRepository.delete(usuario);
+        model.addAttribute("users", usuarioRepository.findAll());
+        return "deletedUserSuccess";
     }
+
+
 
 }

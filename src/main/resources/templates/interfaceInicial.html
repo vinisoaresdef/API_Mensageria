@@ -2,15 +2,54 @@
 <html>
 <head>
     <title>Minha Interface</title>
+    <style>
+        body {
+            background-color: #F0F0F0;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #1E90FF;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #1E90FF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
 <h2>Interface Inicial</h2>
 <ul>
-    <li><button><a href="http://localhost:8080/cadastro/novoCadastro" >Realizar Registro de Cliente</button></li>
+    <li><button><a href="http://localhost:8080/cadastro/novoCadastro">Realizar Registro de Cliente</a></button></li>
     <li><button>Realizar Pagamento</button></li>
-    <li><button><a href="http://localhost:8080/recarga/novaRecarga" > Realizar Recarga </a></button></li>
-    <li><button>Perfil do cliente</button></li>
+    <li><button><a href="http://localhost:8080/recarga/novaRecarga">Realizar Recarga</a></button></li>
+    <li><button><a href="http://localhost:8080/cadastro/meuPerfil">Perfil do cliente</a></button></li>
 </ul>
 </body>
 </html>

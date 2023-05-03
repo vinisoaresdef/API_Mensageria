@@ -7,9 +7,7 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/recarga")
@@ -27,7 +25,7 @@ public class interfaceRecarga {
         return "rechargeRegistration";
     }
 
-    @RequestMapping("/produzirRecargaUsuario")
+    @PostMapping("/produzirRecargaUsuario")
     public String produzirRecargaUsuario(@RequestParam("telefone") String telefone, @RequestParam("operadora") String operadora,
                                            @RequestParam("tipoPagamento") String tipoPagamento, @RequestParam("valor") String valor) {
         var recarga = new Recarga(telefone, operadora, valor, tipoPagamento);
@@ -42,6 +40,18 @@ public class interfaceRecarga {
     public String showRegistrationSuccess() {
         return "registrationRecargaSuccess";
     }
+
+    @GetMapping("/all")
+    public @ResponseBody Iterable<Recarga> getAllRechargesUsers() {
+        // This returns a JSON or XML with the users
+        return recargaRepository.findAll();
+    }
+
+    //@GetMapping("/{id}")
+    //public @ResponseBody Recarga getRechargeByUserId(@PathVariable("id") long id) {
+
+     //   return recargaRepository.findById(id).orElseThrow(() -> new RecargaNotFoundException(id));
+    //}
 
 
 }

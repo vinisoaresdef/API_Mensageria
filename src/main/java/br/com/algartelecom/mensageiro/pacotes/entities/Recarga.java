@@ -5,17 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 @Table(name = "TableRecarga")
-public class Recarga {
+public class Recarga implements Serializable {
     //atributos
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "id")
     private Integer id;
     @Column(name = "telefone")
     private String telefone;
