@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Atualize seus dados: </h2>
+
+<form action="/usuarios/{id}" method="PUT">
+  <input type="hidden" name="id" value="{id}">
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" name="nome" value="{nome}">
+  <br>
+  <label for="telefone">Telefone:</label>
+  <input type="text" id="telefone" name="telefone" value="{telefone}">
+  <br>
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" name="email" value="{email}">
+  <br>
+  <button type="submit">Salvar alterações</button>
+</form>
+
+</body>
+</html>
